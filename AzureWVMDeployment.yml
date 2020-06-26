@@ -6,7 +6,7 @@
     - name: local_admin_password
       prompt: "Enter local administrator password"
 
-tasks:
+  tasks:
   - name: Create resource group
       azure_rm_resourcegroup:
       name: DemoRG3
