@@ -9,8 +9,8 @@
   tasks:
   - name: Create resource group
       azure_rm_resourcegroup:
-      name: DemoRG3
-      location: eastus
+        name: DemoRG3
+        location: eastus
 
   - name: Create virtual network
       azure_rm_virtualnetwork:
