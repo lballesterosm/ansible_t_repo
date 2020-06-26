@@ -6,5 +6,5 @@
   tasks:
     - name: Create resource group
       azure_rm_resourcegroup:
-        name: DemoRG
+        name: DemoRG2
         location: eastus
