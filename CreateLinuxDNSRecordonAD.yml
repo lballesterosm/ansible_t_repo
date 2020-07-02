@@ -1,6 +1,5 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: AD_DNS_Server
 
   tasks:
 
