@@ -1,6 +1,6 @@
-##---
-##- hosts: localhost
-##  connection: local
+---
+- hosts: localhost
+  connection: local
 
   - name: Create Linux DNS record on DNS Server
     win_dns_record:
