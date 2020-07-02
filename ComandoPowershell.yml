@@ -1,5 +1,5 @@
 ---
-- hosts: AD_DNS_Server
+- hosts: 52.188.203.184
 
   tasks:
 
