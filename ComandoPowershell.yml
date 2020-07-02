@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: ejecuta comando DNS
+      win_shell: Add-DnsServerResourceRecordA -Name "mylinux" -ZoneName "testing.cl" -AllowUpdateAny -IPv4Address "192.168.3.10" -TimeToLive 01:00:00 -CreatePtr
