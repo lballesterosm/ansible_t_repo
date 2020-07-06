@@ -26,7 +26,7 @@
       resource_group: "{{ResGroup}}"
       allocation_method: Static
       name: DemoPublicIP
-      register: output_ip_address
+    register: output_ip_address
 
   - name: Output public IP
     debug:
