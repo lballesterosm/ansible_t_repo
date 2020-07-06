@@ -5,25 +5,25 @@
   tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
-      name: {{ResGroup}}
+      name: "{{ResGroup}}"
       location: eastus
 
   - name: Create virtual network
     azure_rm_virtualnetwork:
-      resource_group: {{ResGroup}}
+      resource_group: "{{ResGroup}}"
       name: DemovNet
       address_prefixes: "192.168.0.0/16"
 
   - name: Add subnet
     azure_rm_subnet:
-      resource_group: {{ResGroup}}
+      resource_group: "{{ResGroup}}"
       name: DemoSubnet
       address_prefix: "192.168.3.0/24"
       virtual_network: DemovNet
 
   - name: Create public IP address
     azure_rm_publicipaddress:
-      resource_group: {{ResGroup}}
+      resource_group: "{{ResGroup}}"
       allocation_method: Dynamic
       name: DemoPublicIP
       register: output_ip_address
@@ -34,7 +34,7 @@
 
   - name: Create Network Security Group that allows RDP
     azure_rm_securitygroup:
-      resource_group: {{ResGroup}}
+      resource_group: "{{ResGroup}}"
       name: DemoNSG
       rules:
         - name: Allow_RemoteDesktop
@@ -53,7 +53,7 @@
 
   - name: Create virtual network interface card
     azure_rm_networkinterface:
-      resource_group: {{ResGroup}}
+      resource_group: "{{ResGroup}}"
       name: DemoNIC
       virtual_network: DemovNet
       subnet: DemoSubnet
@@ -62,11 +62,11 @@
 
   - name: Create VM
     azure_rm_virtualmachine:
-      resource_group: {{ResGroup}}
-      name: {{MachineName}}
+      resource_group: "{{ResGroup}}"
+      name: "{{MachineName}}"
       vm_size: Standard_DS1_v2
       admin_username: labadmin
-      admin_password: {{AdminPassord}}
+      admin_password: "{{AdminPassord}}"
       network_interfaces: DemoNIC
       os_type: Windows
       image:
