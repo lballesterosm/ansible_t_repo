@@ -2,10 +2,6 @@
 - hosts: localhost
   connection: local
 
-#  vars_prompt:
-#    - name: local_admin_password
-#      prompt: "Enter local administrator password"
-
   tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
