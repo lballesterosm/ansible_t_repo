@@ -63,7 +63,7 @@
   - name: Create VM
     azure_rm_virtualmachine:
       resource_group: {{ResGroup}}
-      name: webServer03
+      name: {{MachineName}}
       vm_size: Standard_DS1_v2
       admin_username: labadmin
       admin_password: {{AdminPassord}}
