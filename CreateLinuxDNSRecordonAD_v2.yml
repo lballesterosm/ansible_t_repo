@@ -1,0 +1,20 @@
+---
+- hosts: 52.188.203.184
+
+  tasks:
+
+    - name: Create Linux DNS record on DNS Server
+      win_dns_record:
+        name: "myLinux"
+        type: "A"
+        value: "{{serverpublicipaddress}}"
+        zone: "testing.cl"
+    #- name: Create PTR record
+    #  win_dns_record:
+    #    name: "12"
+    #    type: "PTR"
+    #    value: "myLinux"
+    #    zone: "3.168.192.in-addr.arpa"
+
+
+#    win_shell: Add-DnsServerResourceRecordA -Name "mylinux" -ZoneName "testing.cl" -AllowUpdateAny -IPv4Address "192.168.3.10" -TimeToLive 01:00:00 -CreatePtr
