@@ -1,13 +1,13 @@
 ---
-- hosts: 52.188.203.184
+- hosts: 138.91.127.108
 
   tasks:
 
     - name: Create Linux DNS record on DNS Server
       win_dns_record:
-        name: "myLinux"
+        name: "{{MachineName}}"
         type: "A"
-        value: "{{serverpublicipaddress}}"
+        value: "{{output_ip_address.state.ip_address}}"
         zone: "testing.cl"
     #- name: Create PTR record
     #  win_dns_record:
