@@ -3,25 +3,25 @@
   connection: local
 
   tasks:
-  - name: Create resource group
+  - name: Creating resource group
     azure_rm_resourcegroup:
       name: "{{ResGroup}}"
       location: eastus
 
-  - name: Create virtual network
+  - name: Creating virtual network
     azure_rm_virtualnetwork:
       resource_group: "{{ResGroup}}"
       name: DemovNet
       address_prefixes: "192.168.0.0/16"
 
-  - name: Add subnet
+  - name: Adding subnet
     azure_rm_subnet:
       resource_group: "{{ResGroup}}"
       name: DemoSubnet
       address_prefix: "192.168.3.0/24"
       virtual_network: DemovNet
 
-  - name: Create public IP address
+  - name: Creating public IP address
     azure_rm_publicipaddress:
       resource_group: "{{ResGroup}}"
       allocation_method: Static
@@ -33,7 +33,7 @@
       msg: "Public IP is {{output_ip_address.state.ip_address}}"
 #      serverpublicipaddress: "{{output_ip_address.state.ip_address}}"
 
-  - name: Create Network Security Group that allows RDP
+  - name: Creating Network Security Group that allows RDP and WinRM
     azure_rm_securitygroup:
       resource_group: "{{ResGroup}}"
       name: "{{MachineName}}_NSG"
@@ -52,7 +52,7 @@
           priority: 1002
           direction: Inbound
 
-  - name: Create virtual network interface card
+  - name: Creating virtual network interface card
     azure_rm_networkinterface:
       resource_group: "{{ResGroup}}"
       name: "{{MachineName}}_NIC"
@@ -61,7 +61,7 @@
       public_ip_name: "{{MachineName}}_PublicIP"
       security_group: "{{MachineName}}_NSG"
 
-  - name: Create VM
+  - name: Creating Windows VM
     azure_rm_virtualmachine:
       resource_group: "{{ResGroup}}"
       name: "{{MachineName}}"
