@@ -31,7 +31,7 @@
   - name: Output public IP
     debug:
       msg: "Public IP is {{output_ip_address.state.ip_address}}"
-      serverpublicipaddress: "{{output_ip_address.state.ip_address}}"
+#      serverpublicipaddress: "{{output_ip_address.state.ip_address}}"
 
   - name: Create Network Security Group that allows RDP
     azure_rm_securitygroup:
